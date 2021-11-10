@@ -1,0 +1,55 @@
+
+
+.text {
+    color: red;
+    font-size:20px;
+}
+
+.textarea{
+    @extend .text
+
+}
+.h1{
+    @extend .text;  
+
+}
+
+@mixin boder($p1:3px,$p2:solid,$p3:yellow) {
+border: $p1 $p2 $p3;
+
+
+    
+}
+.btn{
+    @include boder(3px,solid,yellow);
+}
+
+
+@function background($background-color){
+    @if($background-color==white) {
+        @return black;
+        
+    }@else{
+        @return white;
+    }
+
+}
+$language:HTML5, CSS3,
+JAVA, React;
+
+@function first($list){
+    @return nth($list,1 );
+
+}
+@function last($list){
+    @return nth($list,-1);
+    @return nth($list, $length($list) )
+
+}
+
+.text1{
+    content :first($language);
+}
+.text2{
+    content: last($language);
+}
